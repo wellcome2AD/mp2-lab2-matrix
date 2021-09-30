@@ -16,7 +16,7 @@ const int MAX_VECTOR_SIZE = 100000000;
 const int MAX_MATRIX_SIZE = 10000;
 
 // Шаблон вектора
-template <class ValType>
+template <typename ValType>
 class TVector
 {
 protected:
@@ -62,6 +62,9 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
+    Size = s;
+    StartIndex = si;
+    pVector = new ValType[Size];
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> //конструктор копирования
