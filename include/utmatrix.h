@@ -5,7 +5,7 @@
 //
 // Верхнетреугольная матрица - реализация на основе шаблона вектора
 
-#ifndef __TMATRIX_H__ 
+#ifndef __TMATRIX_H__
 #define __TMATRIX_H__
 
 #include <iostream>
