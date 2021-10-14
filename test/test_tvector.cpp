@@ -200,78 +200,76 @@ TEST(TVector, can_subtract_scalar_from_vector)
 
 TEST(TVector, can_multiply_scalar_by_vector)
 {
-	TVector<int> v(4);
-	for (int i = 0; i < 4; i++)
+	TVector<int> v(4); 
+	TVector<int> res(4);
+
+	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
+		res[i] = 5;
+	}		
 
 	v = v * 5;
 
-	bool isEq = true;
-	for (int i = 0; i < 4; i++)
-		if (v[i] != 5)
-			isEq = false;
-
-	ASSERT_EQ(isEq, true);
+	ASSERT_EQ(v, res);
 }
 
 TEST(TVector, can_add_vectors_with_equal_size)
 {
 	TVector<int> v(4);
 	TVector<int> v1(4);
+	TVector<int> res(4);
+
 	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
 		v1[i] = 2;
+		res[i] = 3;
 	}
 
 	v1 = v + v1;
 
-	bool isEq = true;
-	for (int i = 0; i < 4; i++)
-		if (v1[i] != 3)
-			isEq = false;
-
-	ASSERT_EQ(isEq, true);
+	ASSERT_EQ(v1, res);
 }
 
 TEST(TVector, cant_add_vectors_with_not_equal_size)
 {
 	TVector<int> v(4);
 	TVector<int> v1(5);
+
 	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
 		v1[i] = 2;
 	}
+
 	ASSERT_ANY_THROW(v1 + v);
 }
 
 TEST(TVector, can_subtract_vectors_with_equal_size)
 {
 	TVector<int> v(4);
-	TVector<int> v1(4);
+	TVector<int> v1(4); 
+	TVector<int> res(4);
+
 	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
 		v1[i] = 2;
+		res[i] = 1;
 	}
 
 	v1 = v1 - v;
 
-	bool isEq = true;
-
-	for (int i = 0; i < 4; i++)
-		if (v1[i] != 1)
-			isEq = false;
-
-	ASSERT_EQ(isEq, true);
+	ASSERT_EQ(res, v1);
 }
 
 TEST(TVector, cant_subtract_vectors_with_not_equal_size)
 {
 	TVector<int> v(4);
 	TVector<int> v1(5);
+
 	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
 		v1[i] = 2;
 	}
+
 	ASSERT_ANY_THROW(v1 - v);
 }
 
@@ -279,6 +277,7 @@ TEST(TVector, can_multiply_vectors_with_equal_size)
 {
 	TVector<int> v(4);
 	TVector<int> v1(4);
+
 	for (int i = 0; i < 4; i++) {
 		v[i] = 1;
 		v1[i] = 2;
